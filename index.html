@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eda Tastekin - Kişisel Web Sitesi</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <ul class="menu">
+            <li><a onclick="resetAndShowLogin()">Giriş</a></li>
+            <li class="nav-item restricted"><a onclick="showSection('iletisim')">iletişim</a></li>
+            <li class="nav-item restricted"><a onclick="showSection('hakkımda')">Hakkımda</a></li>
+            <li class="nav-item restricted"><a onclick="showSection('sehrim')">Şehrim</a></li>
+            <li class="nav-item restricted"><a onclick="showSection('cv')">cv</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="app">
+        <section id="login" class="content-section active">
+            <h2>Güvenlik Girişi</h2>
+            <div style="border: 2px solid #3498db; padding: 20px; border-radius: 10px;">
+                <div class="input-group">
+                    <label>E-posta:</label>
+                    <input type="text" id="email-input" placeholder="E-postanızı girin">
+                </div>
+                <div class="input-group">
+                    <label>Öğrenci No:</label>
+                    <input type="text" id="no-input" placeholder="Öğrenci numaranızı girin">
+                </div>
+                <button class="btn-blue" onclick="validateLogin()">Giriş Yap</button>
+                <p id="status-msg"></p>
+            </div>
+        </section>
+
+              <section id="iletisim" class="content-section">
+
+    <h2>İletişim Formu</h2>
+
+    <form id="contactForm" action="gonder.php" method="POST">
+
+        <div class="input-group">
+
+            <label>Ad Soyad:</label>
+
+            <input type="text" name="name" v-model="formData.name">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>E-posta:</label>
+
+            <input type="email" name="email" v-model="formData.email">
+
+        </div>
+
+
+
+        <div class="input-group">
+
+            <label>Telefon:</label>
+
+            <input type="text" name="phone" v-model="formData.phone">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Doğum Tarihi:</label>
+
+            <input type="date" name="birthdate" v-model="formData.birthdate">
+
+        </div>
+
+
+
+        <div class="input-group">
+
+            <label>Şehir:</label>
+
+            <select name="city" v-model="formData.city">
+
+                <option value="">Seçiniz</option>
+
+                <option value="Sakarya">Sakarya</option>
+
+                <option value="Istanbul">İstanbul</option>
+
+                <option value="konya">konya</option>
+
+                <option value="ankara">ankara</option>
+
+                <option value="izmir">izmir</option>
+
+                <option value="bursa">bursa</option>
+
+            </select>
+
+        </div>
+
+
+
+       
+
+        
+
+        <button type="button" class="btn-orange" onclick="validateWithJS()">JS ile Denetle ve Gönder</button>
+
+        <button type="button" class="btn-green" @click="validateWithVue">Vue.js ile Denetle ve Gönder</button>
+
+    </form>
+
+    <p id="form-status" style="color: red; font-weight: bold; margin-top: 10px;">{{ vueError }}</p>
+
+</section>
+        <section id="hakkinda" class="content-section"><h2>Hakkımda</h2><p>Sakarya Üniversitesi Bilgisayar Mühendisliği öğrencisiyim.</p></section>
+        <section id="cv" class="content-section"><h2>Özgeçmiş</h2><p>Eğitim bilgilerim buradadır.</p></section>
+        <section id="sehrim" class="content-section"><h2>Şehrim</h2><p>Şehir tanıtım detayları.</p></section>
+    </div>
+
+    <script>
+        let accessGranted = false;
+
+        function validateLogin() {
+            const email = document.getElementById('email-input').value.trim();
+            const no = document.getElementById('no-input').value.trim();
+            const msg = document.getElementById('status-msg');
+            
+            if (email === "eda.tastekin@ogr.sakarya.edu.tr" && no === "b251210096") {
+                accessGranted = true;
+                msg.style.color = "green";
+                msg.innerText = "Bilgileriniz doğrudur. Menü açıldı!";
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.add('unlocked');
+                    item.classList.remove('restricted');
+                });
+            } else {
+                msg.style.color = "red";
+                msg.innerText = "Bilgileriniz yanlıştır, tekrar deneyiniz!";
+            }
+        }
+
+        // --- GİRİŞE TIKLANDIĞINDA SIFIRLAMA ---
+        function resetAndShowLogin() {
+            accessGranted = false;
+            // Giriş kutularını temizle
+            document.getElementById('email-input').value = "";
+            document.getElementById('no-input').value = "";
+            document.getElementById('status-msg').innerText = "";
+            
+            // Menüleri tekrar kilitle
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('unlocked');
+                item.classList.add('restricted');
+            });
+
+            // Formu temizle (JavaScript seviyesinde)
+            document.getElementById('contactForm').reset();
+
+            showSection('login');
+        }
+
+        function showSection(id) {
+            if (id !== 'login' && !accessGranted) {
+                alert("Önce giriş yapmalısınız!");
+                return;
+            }
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function validateWithJS() {
+            const form = document.getElementById('contactForm');
+            if (!form.name.value || !form.email.value) {
+                alert("İsim ve E-posta zorunludur! (JS)");
+                return;
+            }
+            form.submit();
+        }
+
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    formData: { name: '', email: '', phone: '', city: '', birthdate: '' },
+                    vueError: ''
+                }
+            },
+            methods: {
+                validateWithVue() {
+                    if (!this.formData.name || !this.formData.email) {
+                        this.vueError = "Lütfen zorunlu alanları doldurun!";
+                        return;
+                    }
+                    document.getElementById('contactForm').submit();
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
