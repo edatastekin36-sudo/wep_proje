@@ -75,6 +75,138 @@ button {
     margin-top: 10px; 
     font-weight: bold; 
 }
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Nüfus Bilgi Kutusu */
+.nufus-kutu {
+    background-color: #f2f2f2;
+    border-left: 6px solid #4d6d9a;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.nufus-kutu h3 {
+    margin-top: 0;
+    color: #456592;
+}
+
+.nufus-liste {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Gezilecek Yerler (Hobi) Kartları */
+.hobi-konteynir {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.kart-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+}
+
+.hobi-kart {
+    background: #cfc2c2;
+    width: 300px; 
+    border-radius: 10px; 
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.hobi-kart:hover {
+    transform: translateY(-8px);
+    background: #b8adad;
+}
+
+.hobi-kart img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Kültürel Miras (Çatalhöyük) Tasarımı */
+.miras-konteynir {
+    border: 2px solid #8d6e63;
+    background-color: #efebe9;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 40px 0;
+}
+
+.miras-ust {
+    text-align: center;
+    border-bottom: 2px dashed #8d6e63;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.miras-ust h2 {
+    color: #5d4037;
+    margin: 0;
+}
+
+.unesco-etiket {
+    display: inline-block;
+    background-color: #1a237e;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.miras-icerik {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.ozellik-kutusu {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+}
+
+.ozellik-kutusu h4 {
+    color: #8d6e63;
+    margin-top: 0;
+    border-left: 4px solid #8d6e63;
+    padding-left: 10px;
+}
+
+.miras-liste {
+    list-style: none;
+    padding: 0;
+}
+
+.miras-liste li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 600px) {
+    .miras-icerik { 
+        grid-template-columns: 1fr; 
+    }
+}
 
 .btn-blue { background-color: #3498db; }
 .btn-orange { background-color: #d83c85; }

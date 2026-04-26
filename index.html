@@ -7,6 +7,7 @@
     <title>Eda Tastekin - Kişisel Web Sitesi</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
@@ -102,13 +103,6 @@
             </select>
 
         </div>
-
-
-
-       
-
-        
-
         <button type="button" class="btn-orange" onclick="validateWithJS()">JS ile Denetle ve Gönder</button>
 
         <button type="button" class="btn-green" @click="validateWithVue">Vue.js ile Denetle ve Gönder</button>
@@ -120,8 +114,117 @@
 </section>
         <section id="hakkinda" class="content-section"><h2>Hakkımda</h2><p>Sakarya Üniversitesi Bilgisayar Mühendisliği öğrencisiyim.</p></section>
         <section id="cv" class="content-section"><h2>Özgeçmiş</h2><p>Eğitim bilgilerim buradadır.</p></section>
-        <section id="sehrim" class="content-section"><h2>Şehrim</h2><p>Şehir tanıtım detayları.</p></section>
+        <section id="sehrim" class="content-section">
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Konya Tanıtımı</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+  
+<section id="about">
+    <h2>KONYAYA HOSGELDİNİZ</h2>
+
+    <h5>KONYANIN TARIHI </h5>
+    <p>Konya; Hititlerden Bizans'a, Selçuklu'dan Osmanlı'ya kadar pek çok medeniyete ev sahipliği yapmış, özellikle Selçuklu başkenti olması hasebiyle Türk-İslam tarihinin en önemli mimari ve kültürel miraslarını bugüne taşımıştır.</p>
+
+    <div class="nufus-kutu">
+        <h3>Konya Nüfusu ve Bilgileri</h3>
+        <p>Konya, Türkiye'nin yüzölçümü bakımından en büyük, nüfus bakımından ise en kalabalık şehirlerinden biridir.</p>
+        <ul class="nufus-liste">
+            <li><strong>Güncel Nüfus:</strong> Yaklaşık 2.320.000</li>
+            <li><strong>Sıralama:</strong> Türkiye'nin en kalabalık 6. şehridir.</li>
+            <li><strong>İlçe Sayısı:</strong> 31 adet ilçesi bulunmaktadır.</li>
+        </ul>
     </div>
+    
+    <h5>KONYA'NIN GEZİLECEK YERLERİ (fotoğraflara tıklayarak videolarını izleyebilirsiniz) </h5>
+    
+    <div class="hobi-konteynir">
+        <a href="https://youtu.be/NTHL0eVW8sk" target="_blank" class="kart-link">
+            <div class="hobi-kart">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/36/41/58/mevlana-muzesi.jpg?w=900&h=500&s=1" alt="Mevlana">
+                <h3>Mevlana Müzesi</h3>
+                <p>Yüzyıllarca Mevlevi tarikatının merkezi olarak hizmet veren dergâh, 1954 yılında müze olarak açılmıştır.</p>
+            </div>
+        </a>
+
+        <a href="https://youtu.be/5gvJB5UGqJw" target="_blank" class="kart-link">
+            <div class="hobi-kart">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/88/46/47/caption.jpg?w=600&h=600&s=1" alt="Çatalhöyük">
+                <h3>Çatalhöyük</h3>
+                <p>M.Ö. 7400 yıllarına uzanan geçmişiyle Neolitik Dönem'in en büyük yerleşim yerlerinden biridir.</p>
+            </div>
+            <a href="https://youtu.be/-9xILlqrLvM?si=gfvEGpvCwyiVg7s1" target="_blank" class="kart-link">
+
+            <div class="hobi-kart">
+
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/53/f1/a6/getlstd-property-photo.jpg?w=1000&h=800&s=1" alt="Kelebekler Bahçesi">
+
+                <h3>Kelebek Bahçesi</h3>
+
+                <p>Bahçe, 1.600 metrekarelik bir kelebek uçuş alanı dahil olmak üzere toplamda 7.600 metrekarelik devasa bir kullanım alanına sahiptir. Bu büyüklüğüyle Avrupa’nın en büyük tropikal kelebek bahçesi unvanını taşır.</p>
+
+            </div>
+
+        </a>
+
+
+
+        <a href="https://youtu.be/BWzV3B4Qv5M?si=xNANphW07gv0XtfI" target="_blank" class="kart-link">
+
+            <div class="hobi-kart">
+
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/19/f3/a1/kyoto-japon-parki.jpg?w=1600&h=-1&s=1" alt="Japon Parkı">
+
+                <h3>Japon Parkı</h3>
+
+                <p>Park, tamamen geleneksel Japon mimarisine ve bahçe düzenleme sanatına uygun olarak tasarlanmıştır. İçeri girdiğinizde kendinizi bir anda Uzak Doğu’da hissetmenizi sağlayan taş yollar, ahşap köprüler ve bambu detayları bulunu.</p>
+
+            </div>
+
+        </a>
+        
+       
+
+    <section id="kulturel-miras">
+        <div class="miras-konteynir">
+            <div class="miras-ust">
+                <h2>Kültürel Mirasımız: Çatalhöyük</h2>
+                <a href="https://tr.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk" target="_blank" class="unesco-etiket">UNESCO DÜNYA MİRASI LİSTESİ (2012) detaylı bilgi için tıklayın</a>
+                <p style="margin-top:10px; font-style: italic;">"İnsanlığın yerleşik hayata geçtiği ilk durak."</p>
+            </div>
+
+            <div class="miras-icerik">
+                <div class="ozellik-kutusu">
+                    <h4>Mimari Detaylar</h4>
+                    <ul class="miras-liste">
+                        <li><b>Girişler Çatıdan:</b> Evlerin kapısı yoktur; girişler damlardaki deliklerden yapılır.</li>
+                        <li><b>Bitişik Düzen:</b> Sokak bulunmaz, evler birbirine yapışık inşa edilmiştir.</li>
+                        <li><b>Kerpiç Yapı:</b> Evler tamamen güneş altında kurutulmuş kerpiçten yapılmıştır.</li>
+                    </ul>
+                </div>
+
+                <div class="ozellik-kutusu">
+                    <h4>Sosyal ve Sanatsal Yaşam</h4>
+                    <ul class="miras-liste">
+                        <li><b>Duvar Resimleri:</b> Dünyanın en eski manzara resimleri burada bulunmuştur.</li>
+                        <li><b>Eşitlikçi Toplum:</b> Kadın ve erkek arasında sosyal statü farkı olmadığı görülmektedir.</li>
+                        <li><b>İnanç Sistemi:</b> Ünlü "Oturan Kadın" heykelciği buraya aittir.</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 20px; font-size: 0.85rem; color: #795548; text-align: center; border-top: 1px solid #d7ccc8; padding-top: 10px;">
+                <strong>Konum:</strong> Çumra, Konya | <strong>Tarih:</strong> M.Ö. 7400 - 6200
+            </div>
+        </div>
+    </section>
+
+</section>
 
     <script>
         let accessGranted = false;
