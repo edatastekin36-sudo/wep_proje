@@ -1,0 +1,100 @@
+<style>
+    /* Genel Bölüm Ayarları */
+#about {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Başlık ve Giriş Yazısı: Sola Yaslı */
+#about h2, 
+#about > p {
+    text-align: left;
+    margin-left: 0;
+}
+
+#about h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-left: 5px solid #6c5ce7; /* Sola yaslılığı vurgulayan şık bir kenarlık */
+    padding-left: 15px;
+}
+
+/* Hobi Konteynırı: KARTLARI ORTALAR */
+.hobi-konteynir {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Kartları yatayda ortalar */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Hobi Kartları: Eski şık kutu tasarımı */
+.hobi-kart {
+    background: #d5cfe8;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 280px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    text-align: center; /* Kart içindeki metinler ortalı */
+}
+
+.hobi-kart:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.hobi-kart img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.hobi-kart h3 {
+    margin: 15px 0 5px 0;
+    color: #2d3436;
+    font-size: 1.3rem;
+}
+
+.hobi-kart p {
+    padding: 0 20px 20px 20px;
+    font-size: 0.95rem;
+    color: #636e72;
+    text-align: center; /* Kartın kendi içindeki yazıları ortalı tutar */
+}
+
+/* Vurgulu isim rengi */
+strong {
+    color: #2e2d36;
+}
+</style>
+
+<section id="about">
+    <h2>Kendimi Tanitiyorum</h2>
+    <p>Merhaba, ben <strong>Eda</strong>. 7 haziran 2007 yilinda Konya'da dunyaya geldim...
+    <br>Sakarya üniversitesi Bilgisayar Mühendisliği 1.sınıf öğrencisiyim.</p>
+
+    <div class="hobi-konteynir">
+        <div class="hobi-kart">
+            <img src="film-resmi.jpg" alt="Sinema">
+            <h3>Film & Dizi</h3>
+            <p>Genellikle fantastik ve eski dönem dizilerini izlemeyi severim.
+            film&dizi kartıma tıklarsanız sevdiğim dizilerin listesini yaptım
+            </p>
+        </div>
+
+        <div class="hobi-kart">
+            <img src="doga-resmi.jpg" alt="Doga Gezisi">
+            <h3>Doga Gezileri</h3>
+            <p>Doganin huzur veren hallerini görmek beni heycanlandırıyor .En büyük hayalim dünya turu yapmaktır.
+                doğa kartına tıkladığınızda gezdiğim yerlerin fotoğrafların bazılarını sizlerle paylaştım.
+            </p>
+        </div>
+    </div>
+</section>
