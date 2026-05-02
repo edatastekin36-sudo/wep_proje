@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -112,12 +111,126 @@
     <p id="form-status" style="color: red; font-weight: bold; margin-top: 10px;">{{ vueError }}</p>
 
 </section>
-        <section id="hakkinda" class="content-section"><h2>Hakkımda</h2><p>Sakarya Üniversitesi Bilgisayar Mühendisliği öğrencisiyim.</p></section>
-        <section id="cv" class="content-section"><!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <section id="hakkımda" class="content-section">
+    <h2>Kendimi Tanıtıyorum</h2><br>
+    <p>Merhaba, ben <strong>Eda </strong>. 7 haziran 2007 yilinda Konya'da dunyaya geldim.
+    <br>Sakarya üniversitesi Bilgisayar Mühendisliği 1.sınıf öğrencisiyim.</p><br>
+
+     <h4> HOBİLERİM</h4>
+     <p>hobi olarak film dizi izlemeyi ve doğa yürüyüşlerini severim.</p><br><br>
+
+    
+<div class="hobi-konteynir">
+        <!-- Doğa Gezileri Kartı -->
+        <div class="hobi-kart" onclick="galeriyiAc('galeriekran')" style="cursor: pointer;">
+         
+            <img src="gezi1.jpg.jpeg" alt="Doga Gezisi">
+            <h3>Doga Gezileri</h3>
+            <p>Doganin huzur veren hallerini görmek beni heycanlandırıyor. 
+               <strong>(Görmek için tıklayın)</strong>
+            </p>
+        </div>
+       <div id="galeriekran" class="modal" style="display: none;">
+    <div class="modal-icerik">  
+        <h2>Bazı Gezi Etkinliklerim</h2>
+        
+        <div class="galeri-satir">
+            <img src="gezi1.jpg.jpeg" alt="Doğa 1">
+            <div class="foto-notu">
+                <h4>Manzara</h4>
+                <p>Okulumuzun güzel manzaralarından sadece biri.</p>
+            </div>
+        </div>
+       <!-- 2. Satır -->
+            <div class="galeri-satir">
+                <img src="gezi2.jpg.jpeg" alt="Doğa 2">
+                <div class="foto-notu">
+                    <h4>ANITKABİR</h4>
+                    <p>Bu fotoğrafta görüldüğü gibi ATAMIZIN kabrine ziyarete gittim.
+                       
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. Satır -->
+            <div class="galeri-satir">
+                <img src="gezi3.jpg.jpeg" alt="Doğa 3">
+                <div class="foto-notu">
+                    <h4>Orman Yürüyüşü</h4>
+                    <p>Görüntüsü ve sessizliğiyle huzur veren bir yerdi.</p>
+                </div>
+            </div>
+
+            <!-- 4. Satır (Düzeltilen kısım burası, modal-icerik içine alındı) -->
+            <div class="galeri-satir">
+                <img src="doğa.jpg.jpeg" alt="Doğa 4">
+                <div class="foto-notu">
+                    <h4>Kano</h4>
+                    <p>Burda ilk defa denemiştim .Tekrar denemeyi çok isterim .</p>
+                </div>
+            </div>
+    </div>
+       </div>
+ 
+    <div class="hobi-konteynir">
+   <div class="hobi-kart" onclick="galeriyiAc('galerifilm')" style="cursor: pointer;">
+    
+            <img src="https://m.media-amazon.com/images/M/MV5BMjU3MDkyY2UtZmQyNC00OGQxLWJlMDAtM2M4NjlkNWE3ZGUyXkEyXkFqcGc@._V1_.jpg" >
+            <h3>Film/dizi</h3>
+            <p>Genellikle fantastik ve eski dönem dizilerini izlemeyi severim beğendiğim ve önerdiğim bazı filimleri ekledim.
+               <strong>(Görmek için tıklayın)</strong>
+            </p>
+        </div>
+        <div id="galerifilm" class="modal" style="display: none;">
+    <div class="modal-icerik">
+       
+        <h2>İzlediklerimin bir kısmı</h2>
+            <!-- 1. Satır -->
+            <div class="galeri-satir">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcWkpWG_NRrU2M8-WB8EbEcJk7smhdrY1eO0ttKXm0bo2ooOEWxk3zBSbsFrSgSJh2OEKOQ&s=10">
+                <div class="foto-notu">
+                <h4>BREAKİNG BAD</h4>
+                    <p>kesinlikle öneririm .Breaking Bad, sıradan bir kimya öğretmeninin bir uyuşturucu baronuna dönüşüm hikayesidir.</p>
+                </div>
+            </div>
+
+            <!-- 2. Satır -->
+            <div class="galeri-satir">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrMx3lR9iuSENP0l08xFBGLtNdBKeeg2wrQ&s">
+                <div class="foto-notu">
+                    <h4>GAME OF THRONES</h4>
+                    <p>Öneririm.Westeros kıtasındaki krallıklar birbirleriyle siyasi oyunlar, savaşlar ve ihanetler yoluyla güç savaşına girerken; kuzeyde, insanlığı tehdit eden kadim ve buzdan bir ordu (Ak Gezenler) uyanmaktadır.
+                       
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. Satır -->
+            <div class="galeri-satir">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjU3MDkyY2UtZmQyNC00OGQxLWJlMDAtM2M4NjlkNWE3ZGUyXkEyXkFqcGc@._V1_.jpg" >
+                <div class="foto-notu">
+                    <h4>VATANIM SENSİN</h4>
+                    <p>Vatanım Sensin, Milli Mücadele dönemini bir aile dramı ve casusluk hikayesi üzerinden anlatan tarihi bir dizidir.</p>
+                </div>
+            </div>
+
+            <!-- 4. Satır (Düzeltilen kısım burası, modal-icerik içine alındı) -->
+            <div class="galeri-satir">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzaLdFWWM4eAj2UVtOt3joQQxnaj4HjSrjDw&s" >
+                <div class="foto-notu">
+                    <h4>PRİSON BREAK</h4>
+                    <p>Prison Break, dahi bir mühendisin, haksız yere idam cezasına çarptırılan ağabeyini kurtarmak için kendisini hapse attırmasını ve sonrasındaki büyük kaçış planını konu alır.</p>
+                </div>
+            </div>
+
+        </div> <!-- modal-icerik SONU -->
+    </div> <!-- galeriEkrani SONU -->
+
+   
+</section>
+   
+
+        <section id="cv" class="content-section">
     <title>Modern CV</title>
     
 </head>
@@ -403,6 +516,30 @@
                 }
             }
         }).mount('#app');
-    </script>
+       
+
+function galeriyiAc(id) {
+    // Önce tüm modalları kapat (isteğe bağlı, temizlik için)
+    document.getElementById('galeriekran').style.display = 'none';
+    document.getElementById('galerifilm').style.display = 'none';
+    
+    // Tıklanan ID'ye göre ilgili modalı aç
+    document.getElementById(id).style.display = 'block';
+}
+
+
+
+
+// Modal dışına tıklandığında kapatma özelliği
+window.onclick = function(event) {
+    const modals = document.getElementsByClassName('modal');
+    for (let i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+            modals[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 </body>
 </html>
