@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -19,7 +20,7 @@
             <li class="nav-item restricted"><a onclick="showSection('cv')">cv</a></li>
         </ul>
     </nav>
-
+    
     <div class="container" id="app">
         <section id="login" class="content-section active">
             <h2>Güvenlik Girişi</h2>
@@ -40,12 +41,13 @@
               <section id="iletisim" class="content-section">
 
     <h2>İletişim Formu</h2>
-
-    <form id="contactForm" action="gonder.php" method="POST">
+    <p id="form-status" style="color: red; font-weight: bold; min-height: 20px;"></p>
+    <form id="contactForm" action="gonder.php"  method="POST">
 
         <div class="input-group">
 
-            <label>Ad Soyad:</label>
+            <label>
+                Ad Soyad:</label>
 
             <input type="text" name="name" v-model="formData.name">
 
@@ -100,17 +102,22 @@
                 <option value="bursa">bursa</option>
 
             </select>
-
+     
         </div>
         <button type="button" class="btn-orange" onclick="validateWithJS()">JS ile Denetle ve Gönder</button>
 
         <button type="button" class="btn-green" @click="validateWithVue">Vue.js ile Denetle ve Gönder</button>
+        <p id="js-error" style="color: red; font-weight: bold;"></p>
+    <p style="color: green; font-weight: bold;">{{ vueError }}</p>
+  </form>
 
-    </form>
-
-    <p id="form-status" style="color: red; font-weight: bold; margin-top: 10px;">{{ vueError }}</p>
-
+     <!-- Hata mesajının görüneceği kutu -->
+    <div id="error-box" class="error-notification" style="display: none;">
+    <span id="error-message"></span>
+    </div>
 </section>
+
+
     <section id="hakkımda" class="content-section">
     <h2>Kendimi Tanıtıyorum</h2><br>
     <p>Merhaba, ben <strong>Eda </strong>. 7 haziran 2007 yilinda Konya'da dunyaya geldim.
@@ -490,33 +497,78 @@
         }
 
         function validateWithJS() {
-            const form = document.getElementById('contactForm');
-            if (!form.name.value || !form.email.value) {
-                alert("İsim ve E-posta zorunludur! (JS)");
+    // 1. Elemanlara doğrudan erişim
+    const nameInput = document.getElementsByName("name")[0];
+    const phoneInput = document.getElementsByName("phone")[0];
+    const statusMsg = document.getElementById('form-status');
+    const form = document.getElementById('contactForm');
+
+    // 2. Mesaj alanını temizle
+    statusMsg.innerText = "";
+    
+    // 3. RegEx Kuralları
+    const harfRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+    const sayiRegex = /^[0-9]+$/;
+
+    let hatalar = [];
+
+    // 4. Denetimler
+    if (!nameInput.value.trim()) {
+        hatalar.push("Ad Soyad boş olamaz.");
+    } else if (!harfRegex.test(nameInput.value.trim())) {
+        hatalar.push("Ad Soyad sadece harf içermeli.");
+    }
+
+    if (phoneInput.value.trim() !== "" && !sayiRegex.test(phoneInput.value.trim())) {
+        hatalar.push("Telefon sadece sayı içermeli.");
+    }
+
+    // 5. Sonuç Gösterimi
+    if (hatalar.length > 0) {
+        // Hataları ekrana bas
+        statusMsg.style.color = "red";
+        statusMsg.innerText = "DİKKAT: " + hatalar.join(" - ");
+        alert("Formda hata var: " + hatalar.join("\n")); // Yazı gelmiyorsa alert kesin gelir
+    } else {
+        statusMsg.style.color = "green";
+        statusMsg.innerText = "Gönderiliyor...";
+        form.submit();
+    }
+}
+
+const { createApp } = Vue;
+createApp({
+    data() {
+        return {
+            formData: { name: '', email: '', phone: '', city: '', birthdate: '' },
+            vueError: ''
+        }
+    },
+    methods: {
+        validateWithVue() {
+            const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+            const phoneRegex = /^[0-9]+$/;
+
+            if (!this.formData.name || !this.formData.email) {
+                this.vueError = "Lütfen zorunlu alanları doldurun!";
                 return;
             }
-            form.submit();
-        }
 
-        const { createApp } = Vue;
-        createApp({
-            data() {
-                return {
-                    formData: { name: '', email: '', phone: '', city: '', birthdate: '' },
-                    vueError: ''
-                }
-            },
-            methods: {
-                validateWithVue() {
-                    if (!this.formData.name || !this.formData.email) {
-                        this.vueError = "Lütfen zorunlu alanları doldurun!";
-                        return;
-                    }
-                    document.getElementById('contactForm').submit();
-                }
+            if (!nameRegex.test(this.formData.name)) {
+                this.vueError = "Hata: Ad Soyad sadece harflerden oluşmalıdır! (Vue)";
+                return;
             }
-        }).mount('#app');
-       
+
+            if (this.formData.phone !== "" && !phoneRegex.test(this.formData.phone)) {
+                this.vueError = "Hata: Telefon sadece sayılardan oluşmalıdır! (Vue)";
+                return;
+            }
+
+            this.vueError = "";
+            document.getElementById('contactForm').submit();
+        }
+    }
+}).mount('#app');
 
 function galeriyiAc(id) {
     // Önce tüm modalları kapat (isteğe bağlı, temizlik için)
