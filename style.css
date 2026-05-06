@@ -512,7 +512,36 @@ strong {
         }
     
 
-  
+     /* FİLM API TASARIMI */
+.film-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.film-container input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.film-container button {
+    padding: 10px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.film-card {
+    margin-top: 30px;
+    background: #2c2c44;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+}
 
 
 
